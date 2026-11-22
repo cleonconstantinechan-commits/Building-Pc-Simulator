@@ -8,12 +8,9 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
-        with:
-          node-version: 20
+        with: {node-version: 20}
       - uses: actions/setup-java@v4
-        with:
-          distribution: temurin
-          java-version: 21
+        with: {distribution: temurin, java-version: 21}
       - name: Siapkan game
         run: |
           mkdir -p www
@@ -29,3 +26,4 @@ jobs:
           chmod +x gradlew
           ./gradlew assembleDebug
       - uses: actions/upload-artifact@v4
+        with: {name: PCBuilderWorld-APK, path: android/app/build/outputs/apk/debug/app-debug.apk}
