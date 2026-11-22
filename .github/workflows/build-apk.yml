@@ -22,6 +22,7 @@ jobs:
           npm install
           npx cap add android
           npx cap sync android
+          sed -i 's/<activity/<activity android:screenOrientation="portrait"/' android/app/src/main/AndroidManifest.xml
           cd android
           chmod +x gradlew
           ./gradlew assembleDebug
